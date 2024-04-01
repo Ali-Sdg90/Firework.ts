@@ -3,3 +3,71 @@
     margin: 0;
     box-sizing: border-box;
 }
+
+body {
+    background-color: #222;
+    color: white;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+}
+
+.roof-line {
+    position: absolute;
+    bottom: 0;
+    width: 100vw;
+    height: 100px;
+    background-color: #171717;
+    z-index: 2;
+}
+
+.firework-package {
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    border-radius: 50%;
+    transition: bottom 1.3s, left 1.3s;
+    background-color: rgb(255, 203, 99);
+
+    .firework {
+        width: 10px;
+        height: 10px;
+        background-color: inherit;
+        border-radius: 50%;
+        transition: opacity 0.1s;
+    }
+
+    .sparkle {
+        width: 6px;
+        height: 6px;
+        background-color: inherit;
+        position: absolute;
+        top: 3px;
+        left: 3px;
+        border-radius: 50%;
+        transition: all 0.8s;
+        animation: sparkle-fade-out 0.5s 0.65s ease-out forwards,
+            sparkle-gravity 0.9s 0.55s ease-out forwards;
+    }
+}
+
+@keyframes sparkle-fade-out {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        transform: scale(0.2);
+    }
+}
+
+@keyframes sparkle-gravity {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(20px);
+    }
+}
