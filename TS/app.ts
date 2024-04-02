@@ -106,55 +106,57 @@ const minColorValue = 30;
 
 for (let i = 0; i < 10000; i++) {
     setTimeout(() => {
-        switch (Math.floor(Math.random() * 6)) {
-            case 0:
-                createFirework(
-                    `rgb(${maxColorValue}, ${minColorValue}, ${randomNumber(
-                        120,
-                        255
-                    )})`
-                );
-                break;
-            case 1:
-                createFirework(
-                    `rgb(${minColorValue}, ${maxColorValue}, ${randomNumber(
-                        120,
-                        255
-                    )})`
-                );
-                break;
-            case 2:
-                createFirework(
-                    `rgb(${maxColorValue}, ${randomNumber(
-                        120,
-                        255
-                    )}, ${minColorValue})`
-                );
-                break;
-            case 3:
-                createFirework(
-                    `rgb(${minColorValue}, ${randomNumber(
-                        120,
-                        255
-                    )}, ${maxColorValue})`
-                );
-                break;
-            case 4:
-                createFirework(
-                    `rgb(${randomNumber(
-                        120,
-                        255
-                    )}, ${maxColorValue}, ${minColorValue})`
-                );
-                break;
-            case 5:
-                createFirework(
-                    `rgb(${randomNumber(
-                        120,
-                        255
-                    )}, ${minColorValue}, ${maxColorValue})`
-                );
-                break;
-        }
-    }, i * randomNumber(100, 380));
+        setTimeout(() => {
+            switch (Math.floor(Math.random() * 6)) {
+                case 0:
+                    createFirework(
+                        `rgb(${maxColorValue}, ${minColorValue}, ${randomNumber(
+                            120,
+                            255
+                        )})`
+                    );
+                    break;
+                case 1:
+                    createFirework(
+                        `rgb(${minColorValue}, ${maxColorValue}, ${randomNumber(
+                            120,
+                            255
+                        )})`
+                    );
+                    break;
+                case 2:
+                    createFirework(
+                        `rgb(${maxColorValue}, ${randomNumber(
+                            120,
+                            255
+                        )}, ${minColorValue})`
+                    );
+                    break;
+                case 3:
+                    createFirework(
+                        `rgb(${minColorValue}, ${randomNumber(
+                            120,
+                            255
+                        )}, ${maxColorValue})`
+                    );
+                    break;
+                case 4:
+                    createFirework(
+                        `rgb(${randomNumber(
+                            120,
+                            255
+                        )}, ${maxColorValue}, ${minColorValue})`
+                    );
+                    break;
+                case 5:
+                    createFirework(
+                        `rgb(${randomNumber(
+                            120,
+                            255
+                        )}, ${minColorValue}, ${maxColorValue})`
+                    );
+                    break;
+            }
+        }, i * randomNumber(100, 380));
+    }, 1000);
 }
