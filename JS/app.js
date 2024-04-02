@@ -4,13 +4,11 @@ const randomNumber = (min, max) => {
     return Math.floor(Math.random() * (max - min)) + min;
 };
 const body = document.querySelector("body");
-const createSparkle = (direction, fireworkPackage) => {
+const createSparkle = (direction, fireworkPackage, min, max) => {
     const sparkle = document.createElement("div");
     sparkle.classList.add("sparkle");
     fireworkPackage.appendChild(sparkle);
     setTimeout(() => {
-        const min = 100;
-        const max = 10;
         let NPositive = true;
         let WPositive = true;
         switch (direction) {
@@ -57,19 +55,41 @@ const createFirework = (color) => {
                 fireworkPackage.style.background = "transparent";
             }, 400);
             directions.map((direction) => {
+                const maxSpreadRadius = randomNumber(50, 200);
                 for (let i = 0; i < 5; i++) {
-                    createSparkle(direction, fireworkPackage);
+                    createSparkle(direction, fireworkPackage, 15 + maxSpreadRadius / 10, maxSpreadRadius);
                 }
             });
             setTimeout(() => {
                 fireworkPackage.remove();
             }, 1500);
-        }, 900);
+        }, 500);
     }, 300);
 };
+const maxColorValue = 220;
+const minColorValue = 30;
 for (let i = 0; i < 10000; i++) {
     setTimeout(() => {
-        createFirework(`rgb(${randomNumber(120, 255)}, ${randomNumber(120, 255)}, ${randomNumber(120, 255)})`);
-    }, i * randomNumber(300, 580));
+        switch (Math.floor(Math.random() * 6)) {
+            case 0:
+                createFirework(`rgb(${maxColorValue}, ${minColorValue}, ${randomNumber(120, 255)})`);
+                break;
+            case 1:
+                createFirework(`rgb(${minColorValue}, ${maxColorValue}, ${randomNumber(120, 255)})`);
+                break;
+            case 2:
+                createFirework(`rgb(${maxColorValue}, ${randomNumber(120, 255)}, ${minColorValue})`);
+                break;
+            case 3:
+                createFirework(`rgb(${minColorValue}, ${randomNumber(120, 255)}, ${maxColorValue})`);
+                break;
+            case 4:
+                createFirework(`rgb(${randomNumber(120, 255)}, ${maxColorValue}, ${minColorValue})`);
+                break;
+            case 5:
+                createFirework(`rgb(${randomNumber(120, 255)}, ${minColorValue}, ${maxColorValue})`);
+                break;
+        }
+    }, i * randomNumber(100, 380));
 }
 //# sourceMappingURL=app.js.map
