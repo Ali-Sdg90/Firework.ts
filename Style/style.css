@@ -30,6 +30,7 @@ body {
   border-radius: 50%;
   transition: bottom 1.3s, left 1.3s;
   background-color: rgb(255, 203, 99);
+  animation: firework-gravity 10s ease forwards;
 }
 .firework-package .firework {
   width: 10px;
@@ -47,23 +48,13 @@ body {
   left: 3px;
   border-radius: 50%;
   transition: all 0.8s;
-  animation: sparkle-fade-out 0.5s 0.65s ease-out forwards, sparkle-gravity 0.9s 0.55s ease-out forwards;
 }
 
-@keyframes sparkle-fade-out {
-  0% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-    transform: scale(0.2);
-  }
-}
-@keyframes sparkle-gravity {
+@keyframes firework-gravity {
   0% {
     transform: translateY(0);
   }
   100% {
-    transform: translateY(20px);
+    transform: translateY(200px);
   }
 }/*# sourceMappingURL=style.css.map */

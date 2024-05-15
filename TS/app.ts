@@ -69,7 +69,7 @@ const createFirework = (color: string) => {
     body.appendChild(fireworkPackage);
 
     setTimeout(() => {
-        fireworkPackage.style.bottom = `${randomNumber(350, 550)}px`;
+        fireworkPackage.style.bottom = `${randomNumber(350, 600)}px`;
         fireworkPackage.style.left = `${randomNumber(
             fireworkPackageLeft - 25,
             fireworkPackageLeft + 25
