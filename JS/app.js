@@ -56,7 +56,7 @@ const createFirework = (color) => {
             }, 400);
             directions.map((direction) => {
                 const maxSpreadRadius = randomNumber(50, 200);
-                for (let i = 0; i < 5; i++) {
+                for (let i = 0; i < 8; i++) {
                     createSparkle(direction, fireworkPackage, 15 + maxSpreadRadius / 10, maxSpreadRadius);
                 }
             });

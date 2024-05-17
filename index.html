@@ -8,6 +8,108 @@
     </head>
     <body>
         <div class="roof-line"></div>
-        <script src="./JS/app.js"></script>
+        <div class="setting-btn"></div>
+
+        <div class="black-shadow">
+            <div class="setting-menu">
+                <div class="setting-header">- Setting -</div>
+
+                <div class="setting-options">
+                    <form>
+                        <div class="setting-row range-setting">
+                            <label for="fireworks-numbers">
+                                Number of fireworks
+                            </label>
+                            <input
+                                type="range"
+                                name="fireworks-numbers"
+                                id="fireworks-numbers"
+                            />
+                            <input
+                                type="text"
+                                class="fireworks-numbers-value"
+                            />
+                        </div>
+
+                        <div class="setting-row range-setting">
+                            <label for="sparkle-numbers">
+                                Number of sparkles
+                            </label>
+                            <input
+                                type="range"
+                                name="sparkles-numbers"
+                                id="sparkles-numbers"
+                            />
+                            <input type="text" class="sparkles-numbers-value" />
+                        </div>
+
+                        <div class="setting-row range-setting">
+                            <label> Fireworks initial x position </label>
+                            <span class="multi-range">
+                                <input
+                                    type="range"
+                                    min="0"
+                                    max="50"
+                                    value="5"
+                                    id="initial-lower"
+                                />
+                                <input
+                                    type="range"
+                                    min="0"
+                                    max="50"
+                                    value="45"
+                                    id="initial-upper"
+                                />
+                            </span>
+                            <input type="text" class="x-position-value" />
+                        </div>
+
+                        <div class="setting-row range-setting">
+                            <label>Fireworks height</label>
+                            <span class="multi-range">
+                                <input
+                                    type="range"
+                                    min="0"
+                                    max="50"
+                                    value="5"
+                                    id="height-lower"
+                                />
+                                <input
+                                    type="range"
+                                    min="0"
+                                    max="50"
+                                    value="45"
+                                    id="height-upper"
+                                />
+                            </span>
+                            <input type="text" class="firework-height-value" />
+                        </div>
+
+                        <div class="setting-row">
+                            <label for="fireworks-color-checkbox">
+                                Fireworks change color
+                            </label>
+                            <input
+                                type="checkbox"
+                                name="fireworks-color-checkbox"
+                                id="fireworks-color-checkbox"
+                                class="fireworks-color-checkbox"
+                            />
+                        </div>
+
+                        <div class="setting-row">
+                            <label for="fireworks-color-input">
+                                Fireworks default color
+                            </label>
+                        </div>
+                    </form>
+                </div>
+
+                <button class="apply-btn">Apply Changes</button>
+            </div>
+        </div>
+
+        <!-- <script src="./JS/app.js"></script> -->
+        <script src="./JS/setting.js"></script>
     </body>
 </html>

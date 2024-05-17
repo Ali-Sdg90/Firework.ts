@@ -50,6 +50,147 @@ body {
   transition: all 0.8s;
 }
 
+input[type=range] {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  width: 200px;
+  margin: 0;
+  padding: 0 2px;
+  /* Add some L/R padding to ensure box shadow of handle is shown */
+  overflow: hidden;
+  border: 0;
+  border-radius: 1px;
+  outline: none;
+  background: linear-gradient(grey, grey) no-repeat center;
+  /* Use a linear gradient to generate only the 2px height background */
+  background-size: 100% 2px;
+  pointer-events: none;
+}
+input[type=range]:active, input[type=range]:focus {
+  outline: none;
+}
+input[type=range]::-webkit-slider-thumb {
+  height: 20px;
+  width: 20px;
+  border-radius: 28px;
+  background-color: #fff;
+  position: relative;
+  margin: 5px 0;
+  /* Add some margin to ensure box shadow is shown */
+  cursor: pointer;
+  -webkit-appearance: none;
+          appearance: none;
+  pointer-events: all;
+  box-shadow: 0 1px 4px 0.5px rgba(0, 0, 0, 0.25);
+}
+input[type=range]::-webkit-slider-thumb::before {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 13px;
+  left: 100%;
+  width: 2000px;
+  height: 2px;
+}
+
+.multi-range {
+  position: relative;
+  height: 30px;
+}
+.multi-range input[type=range] {
+  position: absolute;
+}
+.multi-range input[type=range]:nth-child(1)::-webkit-slider-thumb::before {
+  background-color: red;
+}
+.multi-range input[type=range]:nth-child(2) {
+  background: none;
+}
+.multi-range input[type=range]:nth-child(2)::-webkit-slider-thumb::before {
+  background-color: grey;
+}
+
+.black-shadow {
+  background-color: rgba(0, 0, 0, 0.4);
+  height: 100vh;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+}
+.black-shadow .setting-menu {
+  border: 3px solid rgb(153, 153, 153);
+  font-family: sans-serif;
+  background-color: #292929;
+  border-radius: 5px;
+  transform: scale(1.1);
+}
+.black-shadow .setting-menu .setting-header {
+  border-bottom: 3px solid rgb(153, 153, 153);
+  font-size: 24px;
+  text-align: center;
+  padding: 10px;
+  letter-spacing: 1px;
+  font-weight: bold;
+}
+.black-shadow .setting-menu .setting-options {
+  padding: 5px 10px 0;
+}
+.black-shadow .setting-menu .setting-options .setting-row {
+  padding: 5px 10px;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 20px;
+  height: 42px;
+}
+.black-shadow .setting-menu .setting-options .setting-row [class$=-value] {
+  background-color: #575757;
+  border: none;
+  border-radius: 3px;
+  outline: none;
+  text-align: center;
+  color: white;
+  height: 20px;
+}
+.black-shadow .setting-menu .setting-options .setting-row .fireworks-color-checkbox {
+  width: 18px;
+  height: 18px;
+  margin-left: 10px;
+  accent-color: #959595;
+  transform: translateY(1px);
+}
+.black-shadow .setting-menu .setting-options .range-setting {
+  display: grid;
+  grid-template-columns: 5fr 4fr 50px;
+  gap: 10px;
+}
+.black-shadow .setting-menu .apply-btn {
+  background-color: #676767;
+  color: white;
+  width: calc(100% - 30px);
+  margin: 5px 15px 15px;
+  padding: 12px 10px 10px;
+  border: none;
+  border-radius: 4px;
+  font-size: 18px;
+  letter-spacing: 1.2px;
+  cursor: pointer;
+  box-shadow: 0 3px 3px 3px rgba(0, 0, 0, 0.01);
+  transition: background-color 0.15s, transform 0.15s, letter-spacing 0.15s, box-shadow 0.15s;
+}
+.black-shadow .setting-menu .apply-btn:hover {
+  background-color: #7c7c7c;
+  letter-spacing: 1.4px;
+}
+.black-shadow .setting-menu .apply-btn:active {
+  transform: translateY(1.5px);
+  letter-spacing: 1.3px;
+  box-shadow: 0 1px 3px 3px rgba(0, 0, 0, 0.01);
+}
+
 @keyframes firework-gravity {
   0% {
     transform: translateY(0);
