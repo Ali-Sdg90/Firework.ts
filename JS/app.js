@@ -68,9 +68,16 @@ const createFirework = (color) => {
 };
 const maxColorValue = 220;
 const minColorValue = 30;
-for (let i = 0; i < 10000; i++) {
-    setTimeout(() => {
-        setTimeout(() => {
+let timeoutIds = [];
+let isRunning = false;
+const startTheShow = (id) => {
+    if (isRunning) {
+        stopTheShow();
+    }
+    isRunning = true;
+    for (let i = 0; i < 100; i++) {
+        const timeoutId = setTimeout(() => {
+            console.log(id);
             switch (Math.floor(Math.random() * 6)) {
                 case 0:
                     createFirework(`rgb(${maxColorValue}, ${minColorValue}, ${randomNumber(120, 255)})`);
@@ -92,6 +99,17 @@ for (let i = 0; i < 10000; i++) {
                     break;
             }
         }, i * randomNumber(100, 380));
-    }, 1000);
-}
+        timeoutIds.push(timeoutId);
+    }
+};
+const stopTheShow = () => {
+    for (const timeoutId of timeoutIds) {
+        clearTimeout(timeoutId);
+    }
+    timeoutIds = [];
+    isRunning = false;
+};
+setTimeout(() => {
+    startTheShow("1");
+}, 1000);
 //# sourceMappingURL=app.js.map

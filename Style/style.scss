@@ -131,7 +131,7 @@ input[type="range"] {
         border: 3px solid rgb(153, 153, 153);
         font-family: sans-serif;
         background-color: #292929;
-        border-radius: 5px;
+        border-radius: 14px;
         transform: scale(1.1);
 
         .setting-header {
@@ -173,11 +173,31 @@ input[type="range"] {
                     accent-color: #959595;
                     transform: translateY(1px);
                 }
+
+                input[type="color"]::-webkit-color-swatch-wrapper {
+                    padding: 0;
+                }
+                
+                input[type="color"]::-webkit-color-swatch {
+                    border: 1px solid lightgray;
+                }
+
+                .fireworks-color-input {
+                    width: 26px;
+                    height: 26px;
+                    overflow: hidden;
+                    border: none;
+                    outline: 2px solid rgb(41, 41, 41);
+                    outline-offset: -1px;
+                    border-radius: 50%;
+                    background-color: transparent;
+                    margin: 10px;
+                }
             }
 
             .range-setting {
                 display: grid;
-                grid-template-columns: 5fr 4fr 50px;
+                grid-template-columns: 5fr 4fr 60px;
                 gap: 10px;
             }
         }
