@@ -59,7 +59,7 @@ const createFirework = (color: string) => {
     const fireworkPackage = document.createElement("div");
     fireworkPackage.classList.add("firework-package");
     fireworkPackage.style.background = color;
-    const fireworkPackageLeft = randomNumber(20, 80); // Setting
+    const fireworkPackageLeft = randomNumber(20, 80); // Setting?
     fireworkPackage.style.left = `${fireworkPackageLeft}%`;
 
     const firework = document.createElement("div");
@@ -69,10 +69,13 @@ const createFirework = (color: string) => {
     body.appendChild(fireworkPackage);
 
     setTimeout(() => {
-        fireworkPackage.style.bottom = `${randomNumber(350, 600)}px`; // Setting
+        fireworkPackage.style.bottom = `${randomNumber(
+            650 * (fireworkHeightLower / 100) + 100,
+            650 * (fireworkHeightUpper / 100) + 100
+        )}px`; // Setting
         fireworkPackage.style.left = `${randomNumber(
-            fireworkPackageLeft - 25,
-            fireworkPackageLeft + 25
+            xPositionLower,
+            xPositionUpper
         )}%`; // Setting
 
         setTimeout(() => {
@@ -84,12 +87,12 @@ const createFirework = (color: string) => {
             directions.map((direction) => {
                 const maxSpreadRadius = randomNumber(50, 200); // Setting
 
-                for (let i = 0; i < 8; i++) {
+                for (let i = 0; i < NumberOfSparkles; i++) {
                     // Setting
                     createSparkle(
                         direction as "NW" | "NE" | "SW" | "SE",
                         fireworkPackage,
-                        15 + maxSpreadRadius / 10,
+                        maxSpreadRadius / 10,
                         maxSpreadRadius
                     );
                 }
@@ -168,7 +171,7 @@ const startTheShow = (id: string) => {
                     );
                     break;
             }
-        }, i * randomNumber(100, 380));
+        }, i * randomNumber((100 / 15) * (40 - fireworksFireRate), (380 / 15) * (40 - fireworksFireRate)));
 
         timeoutIds.push(timeoutId);
     }

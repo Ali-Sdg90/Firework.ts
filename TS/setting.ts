@@ -32,6 +32,13 @@ const multiRangeInput = (
     };
 };
 
+let xPositionLower = 20;
+let xPositionUpper = 80;
+let fireworkHeightLower = 50;
+let fireworkHeightUpper = 86;
+let NumberOfSparkles = 8;
+let fireworksFireRate = 8;
+
 multiRangeInput(
     document.querySelector("#height-lower") as HTMLInputElement,
     document.querySelector("#height-upper") as HTMLInputElement
@@ -74,42 +81,49 @@ const fireworkHeightValue = document.querySelector(
     ".firework-height-value"
 ) as HTMLInputElement;
 
-let heightLowerValue = "";
-let heightUpperValue = "";
-
 const applyBtn = document.querySelector(".apply-btn") as HTMLInputElement;
 
 fireworksNumbers.addEventListener("input", () => {
     fireworksNumbersValue.value = fireworksNumbers.value;
+    fireworksFireRate = +fireworksNumbers.value;
 });
 
 sparklesNumbers.addEventListener("input", () => {
     sparklesNumbersValue.value = sparklesNumbers.value;
+    NumberOfSparkles = +sparklesNumbers.value / 4;
 });
 
 initialLower.addEventListener("input", () => {
-    initialLowerValue = initialLower.value;
-    xPositionValue.value = `${initialLowerValue.padStart(
+    xPositionLower = +initialLower.value;
+    xPositionUpper = +initialUpper.value;
+
+    xPositionValue.value = `${initialLower.value.padStart(
         2,
         "  "
-    )} - ${initialUpperValue.padStart(2, "  ")}`;
+    )} - ${initialUpper.value.padStart(2, "  ")}`;
 });
 
 initialUpper.addEventListener("input", () => {
-    initialUpperValue = initialUpper.value;
-    xPositionValue.value = `${initialLowerValue.padStart(
+    xPositionLower = +initialLower.value;
+    xPositionUpper = +initialUpper.value;
+
+    xPositionValue.value = `${initialLower.value.padStart(
         2,
         "  "
-    )} - ${initialUpperValue.padStart(2, "  ")}`;
+    )} - ${initialUpper.value.padStart(2, "  ")}`;
 });
 
 heightLower.addEventListener("input", () => {
-    heightLowerValue = heightLower.value;
+    fireworkHeightLower = +heightLower.value;
+    fireworkHeightUpper = +heightUpper.value;
+
     fireworkHeightValue.value = `${heightLower.value} - ${heightUpper.value}`;
 });
 
 heightUpper.addEventListener("input", () => {
-    heightUpperValue = heightUpper.value;
+    fireworkHeightLower = +heightLower.value;
+    fireworkHeightUpper = +heightUpper.value;
+
     fireworkHeightValue.value = `${heightLower.value} - ${heightUpper.value}`;
 });
 

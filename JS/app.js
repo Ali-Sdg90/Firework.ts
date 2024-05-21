@@ -47,8 +47,8 @@ const createFirework = (color) => {
     fireworkPackage.appendChild(firework);
     body.appendChild(fireworkPackage);
     setTimeout(() => {
-        fireworkPackage.style.bottom = `${randomNumber(350, 600)}px`;
-        fireworkPackage.style.left = `${randomNumber(fireworkPackageLeft - 25, fireworkPackageLeft + 25)}%`;
+        fireworkPackage.style.bottom = `${randomNumber(650 * (fireworkHeightLower / 100) + 100, 650 * (fireworkHeightUpper / 100) + 100)}px`;
+        fireworkPackage.style.left = `${randomNumber(xPositionLower, xPositionUpper)}%`;
         setTimeout(() => {
             setTimeout(() => {
                 firework.style.opacity = "0";
@@ -56,8 +56,8 @@ const createFirework = (color) => {
             }, 400);
             directions.map((direction) => {
                 const maxSpreadRadius = randomNumber(50, 200);
-                for (let i = 0; i < 8; i++) {
-                    createSparkle(direction, fireworkPackage, 15 + maxSpreadRadius / 10, maxSpreadRadius);
+                for (let i = 0; i < NumberOfSparkles; i++) {
+                    createSparkle(direction, fireworkPackage, maxSpreadRadius / 10, maxSpreadRadius);
                 }
             });
             setTimeout(() => {
@@ -98,7 +98,7 @@ const startTheShow = (id) => {
                     createFirework(`rgb(${randomNumber(120, 255)}, ${minColorValue}, ${maxColorValue})`);
                     break;
             }
-        }, i * randomNumber(100, 380));
+        }, i * randomNumber((100 / 15) * (40 - fireworksFireRate), (380 / 15) * (40 - fireworksFireRate)));
         timeoutIds.push(timeoutId);
     }
 };
